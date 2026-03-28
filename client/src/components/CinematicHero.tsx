@@ -71,55 +71,55 @@ export function CinematicHero({
         .to(".text-track", { duration: 1.8, autoAlpha: 1, y: 0, scale: 1, filter: "blur(0px)", rotationX: 0, ease: "expo.out" })
         .to(".text-days", { duration: 1.4, clipPath: "inset(0 0% 0 0)", ease: "power4.inOut" }, "-=1.0");
 
-      // Scroll timeline — scrub:true means animation is 1:1 with scroll position, no lag
+      // Scroll timeline — tight pacing, minimal blank gap between hero and CTA
+      // Total timeline units: ~7.5, mapped to 2800px scroll distance
       const scrollTl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=5000",
+          end: "+=2800",
           pin: true,
-          scrub: 0.4,
+          scrub: 0.3,
           anticipatePin: 1,
         },
       });
 
       scrollTl
-        // Phase 1: Hero text fades out + card rises in simultaneously (tight, 1.5 units)
-        .to(".hero-text-wrapper", { scale: 1.08, filter: "blur(18px)", autoAlpha: 0, ease: "none", duration: 1.5 }, 0)
-        .to(".bg-grid-theme", { scale: 1.08, opacity: 0.1, ease: "none", duration: 1.5 }, 0)
-        .to(".main-card", { y: 0, ease: "none", duration: 1.5 }, 0)
-        // Phase 2: Card expands to fullscreen (0.8 units)
-        .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "none", duration: 0.8 })
-        // Phase 3: Phone mockup reveals (1.2 units)
+        // Phase 1 (0→1): Hero fades out + card rises simultaneously
+        .to(".hero-text-wrapper", { scale: 1.06, filter: "blur(16px)", autoAlpha: 0, ease: "none", duration: 1 }, 0)
+        .to(".bg-grid-theme", { opacity: 0.05, ease: "none", duration: 1 }, 0)
+        .to(".main-card", { y: 0, ease: "none", duration: 1 }, 0)
+        // Phase 2 (1→1.6): Card snaps to fullscreen
+        .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "none", duration: 0.6 })
+        // Phase 3 (1.6→2.6): Phone + badges + text all reveal together
         .fromTo(".mockup-scroll-wrapper",
-          { y: 200, rotationX: 40, autoAlpha: 0, scale: 0.7 },
-          { y: 0, rotationX: 0, autoAlpha: 1, scale: 1, ease: "none", duration: 1.2 }, "-=0.3"
+          { y: 120, autoAlpha: 0, scale: 0.8 },
+          { y: 0, autoAlpha: 1, scale: 1, ease: "none", duration: 0.8 }, "-=0.1"
         )
-        .fromTo(".phone-widget", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.08, ease: "none", duration: 0.8 }, "-=0.8")
-        .to(".progress-ring", { strokeDashoffset: 60, ease: "none", duration: 0.8 }, "-=0.8")
-        .to(".counter-val", { innerHTML: 88, snap: { innerHTML: 1 }, ease: "none", duration: 0.8 }, "<")
-        .fromTo(".floating-badge", { y: 60, autoAlpha: 0, scale: 0.8 }, { y: 0, autoAlpha: 1, scale: 1, stagger: 0.1, ease: "none", duration: 0.8 }, "-=0.6")
-        .fromTo(".card-left-text", { x: -40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.8 }, "-=0.6")
-        .fromTo(".card-right-text", { x: 40, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.8 }, "<")
-        // Phase 4: Hold the phone scene briefly (0.5 units)
-        .to({}, { duration: 0.5 })
-        // Phase 5: Exit phone content, reveal CTA (1.2 units)
+        .fromTo(".phone-widget", { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.04, ease: "none", duration: 0.5 }, "-=0.6")
+        .to(".progress-ring", { strokeDashoffset: 60, ease: "none", duration: 0.6 }, "-=0.6")
+        .to(".counter-val", { innerHTML: 88, snap: { innerHTML: 1 }, ease: "none", duration: 0.6 }, "<")
+        .fromTo(".floating-badge", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.06, ease: "none", duration: 0.5 }, "-=0.4")
+        .fromTo(".card-left-text", { x: -30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.5 }, "-=0.4")
+        .fromTo(".card-right-text", { x: 30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.5 }, "<")
+        // Phase 4 (2.6→3.4): Phone exits + CTA fades in — NO hold pause
         .to([".mockup-scroll-wrapper", ".floating-badge", ".card-left-text", ".card-right-text"], {
-          scale: 0.92, y: -30, autoAlpha: 0, ease: "none", duration: 0.8,
+          autoAlpha: 0, y: -20, ease: "none", duration: 0.5,
         })
         .set(".hero-text-wrapper", { autoAlpha: 0 })
-        .fromTo(".cta-wrapper", { autoAlpha: 0, scale: 0.95, filter: "blur(12px)" }, { autoAlpha: 1, scale: 1, filter: "blur(0px)", ease: "none", duration: 0.8 }, "-=0.2")
-        // Phase 6: Hold CTA (0.5 units)
-        .to({}, { duration: 0.5 })
-        // Phase 7: Card pullback + CTA stays, then card exits (1.5 units)
+        .fromTo(".cta-wrapper",
+          { autoAlpha: 0, scale: 0.97, filter: "blur(8px)" },
+          { autoAlpha: 1, scale: 1, filter: "blur(0px)", ease: "none", duration: 0.6 }, "-=0.1"
+        )
+        // Phase 5 (3.4→4.4): Card shrinks back + exits
         .to(".main-card", {
           width: isMobile ? "92vw" : "85vw",
           height: isMobile ? "92vh" : "85vh",
           borderRadius: isMobile ? "32px" : "40px",
           ease: "none",
-          duration: 1.0
-        }, "pullback")
-        .to(".main-card", { y: -window.innerHeight - 200, ease: "none", duration: 1.0 });
+          duration: 0.7
+        }, "+=0.1")
+        .to(".main-card", { y: -(window.innerHeight + 150), ease: "none", duration: 0.8 });
 
     }, containerRef);
 

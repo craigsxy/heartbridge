@@ -22,3 +22,4 @@
 - [x] Write vitest tests for API routes
 - [x] Final polish and QA
 - [x] Fix GSAP scroll animation lag: hero text blur-to-CTA transition should be fully scrub-synced with no delay
+- [x] Compress GSAP scroll timeline: reduce blank gap between hero and CTA, shorten total scroll distance
