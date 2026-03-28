@@ -1,0 +1,23 @@
+# HeartBridge Landing Page TODO
+
+- [x] Install GSAP dependency for scroll animations
+- [x] Setup global styles with HeartBridge brand colors (blue #5B7DB8, white, light gray)
+- [x] Add Inter/Geist font via Google Fonts CDN
+- [x] Create database schema for waitlist signups (name, email, phone, child age, message)
+- [x] Create database schema for newsletter subscribers
+- [x] Build cinematic hero section with GSAP ScrollTrigger and 3D phone mockup reveal
+- [x] Build HeartBridge app mockup inside phone (predictive analysis UI)
+- [x] Build floating glass badges for hero section
+- [x] Build CTA section with waitlist signup button
+- [x] Build core features showcase section (5 modules: Predictive Analysis, Real-time Recording, Therapist Connection, Parent Community, Chatbot Resources)
+- [x] Build therapist matching highlight section with search/filter/booking flow
+- [x] Build testimonials/social proof section with 95% BCBA satisfaction stat
+- [x] Build waitlist/early access signup form with database storage
+- [x] Build footer with navigation links, social media icons, newsletter signup
+- [x] Create tRPC API routes for waitlist submission
+- [x] Create tRPC API routes for newsletter subscription
+- [x] Wire up waitlist form to backend API
+- [x] Wire up newsletter form to backend API
+- [x] Responsive design for mobile and desktop
+- [x] Write vitest tests for API routes
+- [x] Final polish and QA

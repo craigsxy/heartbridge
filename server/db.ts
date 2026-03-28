@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { InsertUser, users, waitlist, newsletter, InsertWaitlistEntry, InsertNewsletterEntry } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +89,30 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// --- Waitlist ---
+export async function insertWaitlistEntry(entry: InsertWaitlistEntry) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  const result = await db.insert(waitlist).values(entry);
+  return result;
+}
+
+export async function getWaitlistEntries() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(waitlist).orderBy(waitlist.createdAt);
+}
+
+// --- Newsletter ---
+export async function insertNewsletterEntry(entry: InsertNewsletterEntry) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  const result = await db.insert(newsletter).values(entry);
+  return result;
+}
+
+export async function getNewsletterEntries() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(newsletter).orderBy(newsletter.createdAt);
+}
