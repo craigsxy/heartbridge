@@ -22,15 +22,14 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
           : "w-[95%] max-w-5xl bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200/30"
       }`}
     >
-      <div className="flex items-center justify-between px-5 py-3">
+      <div className="flex items-center justify-between pl-0 pr-5 h-18 overflow-visible">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5B7DB8] to-[#4A6FA5] flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow">
-            <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
-          </div>
-          <span className="text-lg font-bold tracking-tight text-gray-900">HeartBridge</span>
+        <a href="#" className="flex items-center group overflow-visible">
+          <img
+            src="/favicon.png"
+            alt="HeartBridge"
+            className="h-48 w-auto object-contain group-hover:opacity-90 transition-opacity"
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -54,7 +53,7 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={onJoinWaitlist}
-            className="px-5 py-2.5 bg-[#1a1a2e] text-white text-sm font-semibold rounded-xl hover:bg-[#2a2a3e] transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="px-5 py-2.5 bg-[#0068FF] text-white text-sm font-semibold rounded-xl hover:bg-[#0051E8] transition-all duration-200 shadow-md shadow-[#0068FF]/30 hover:shadow-lg hover:shadow-[#0068FF]/40 hover:-translate-y-0.5"
           >
             Join Waitlist
           </button>
@@ -94,7 +93,7 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
           ))}
           <button
             onClick={() => { onJoinWaitlist?.(); setMobileMenuOpen(false); }}
-            className="w-full mt-2 px-5 py-2.5 bg-[#1a1a2e] text-white text-sm font-semibold rounded-xl"
+            className="w-full mt-2 px-5 py-2.5 bg-[#0068FF] text-white text-sm font-semibold rounded-xl hover:bg-[#0051E8]"
           >
             Join Waitlist
           </button>

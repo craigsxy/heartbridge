@@ -225,7 +225,7 @@ export function CinematicHero({
                           <span className="text-[10px] text-neutral-400 uppercase tracking-widest font-bold mb-1">Today's Insights</span>
                           <span className="text-xl font-bold tracking-tight text-white drop-shadow-md">Predictive Care</span>
                         </div>
-                        <div className="w-9 h-9 rounded-full bg-[#5B7DB8]/20 text-blue-200 flex items-center justify-center font-bold text-sm border border-[#5B7DB8]/30 shadow-lg shadow-black/50">
+                        <div className="w-9 h-9 rounded-full bg-[#0068FF]/20 text-[#A3D7FF] flex items-center justify-center font-bold text-sm border border-[#0068FF]/30 shadow-lg shadow-black/50">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
                         </div>
                       </div>
@@ -234,7 +234,7 @@ export function CinematicHero({
                       <div className="phone-widget relative w-40 h-40 mx-auto flex items-center justify-center mb-6 drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)]">
                         <svg className="absolute inset-0 w-full h-full">
                           <circle cx="80" cy="80" r="64" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="12" />
-                          <circle className="progress-ring" cx="80" cy="80" r="64" fill="none" stroke="#5B7DB8" strokeWidth="12" />
+                          <circle className="progress-ring" cx="80" cy="80" r="64" fill="none" stroke="#0068FF" strokeWidth="12" />
                         </svg>
                         <div className="text-center z-10 flex flex-col items-center">
                           <span className="counter-val text-4xl font-extrabold tracking-tighter text-white">0</span>
@@ -245,8 +245,8 @@ export function CinematicHero({
                       {/* Metric Cards */}
                       <div className="space-y-2.5">
                         <div className="phone-widget widget-depth rounded-2xl p-3 flex items-center">
-                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#5B7DB8]/20 to-[#5B7DB8]/5 flex items-center justify-center mr-3 border border-[#5B7DB8]/20 shadow-inner">
-                            <svg className="w-4 h-4 text-[#7B9DD0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#0068FF]/20 to-[#0068FF]/5 flex items-center justify-center mr-3 border border-[#0068FF]/15 shadow-inner">
+                            <svg className="w-4 h-4 text-[#70B8FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                           </div>
@@ -287,14 +287,14 @@ export function CinematicHero({
 
                 {/* Floating Badges */}
                 <div className="floating-badge absolute flex top-6 lg:top-12 left-[-15px] lg:left-[-80px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-[#5B7DB8]/20 to-[#5B7DB8]/10 flex items-center justify-center border border-[#5B7DB8]/30 shadow-inner">
-                    <svg className="w-4 h-4 text-[#7B9DD0]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-[#0068FF]/20 to-[#0068FF]/10 flex items-center justify-center border border-[#0068FF]/20 shadow-inner">
+                    <svg className="w-4 h-4 text-[#70B8FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
                     <p className="text-white text-xs lg:text-sm font-bold tracking-tight">95% Match Rate</p>
-                    <p className="text-blue-200/50 text-[10px] lg:text-xs font-medium">BCBA Therapists</p>
+                    <p className="text-[#A3D7FF]/60 text-[10px] lg:text-xs font-medium">BCBA Therapists</p>
                   </div>
                 </div>
 
@@ -306,7 +306,7 @@ export function CinematicHero({
                   </div>
                   <div>
                     <p className="text-white text-xs lg:text-sm font-bold tracking-tight">AI Predictions</p>
-                    <p className="text-blue-200/50 text-[10px] lg:text-xs font-medium">90% accuracy</p>
+                    <p className="text-[#A3D7FF]/60 text-[10px] lg:text-xs font-medium">90% accuracy</p>
                   </div>
                 </div>
               </div>
@@ -317,7 +317,7 @@ export function CinematicHero({
               <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-0 lg:mb-5 tracking-tight">
                 Care, redefined.
               </h3>
-              <p className="hidden md:block text-blue-100/70 text-sm md:text-base lg:text-lg font-normal leading-relaxed mx-auto lg:mx-0 max-w-sm lg:max-w-none">
+              <p className="hidden md:block text-[#A3D7FF]/80 text-sm md:text-base lg:text-lg font-normal leading-relaxed mx-auto lg:mx-0 max-w-sm lg:max-w-none">
                 <span className="text-white font-semibold">HeartBridge</span> empowers parents of children with autism through predictive behavioral analysis, instant therapist connections, and personalized daily guidance.
               </p>
             </div>

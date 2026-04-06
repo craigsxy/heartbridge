@@ -96,16 +96,16 @@ export function TherapistSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7B5EA7]/10 border border-[#7B5EA7]/20 mb-6">
-            <div className="w-2 h-2 rounded-full bg-[#7B5EA7] animate-pulse" />
-            <span className="text-sm font-semibold text-[#7B5EA7] tracking-wide">Therapist Matching</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2273FD]/10 border border-[#2273FD]/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-[#2273FD] animate-pulse" />
+            <span className="text-sm font-semibold text-[#2273FD] tracking-wide">Therapist Matching</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-5">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#2C3D4B] mb-5">
             Find the right therapist,
             <br />
-            <span className="text-[#5B7DB8]">in minutes.</span>
+            <span className="text-[#0068FF]">in minutes.</span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#6A7780] text-lg max-w-2xl mx-auto leading-relaxed">
             Our intelligent matching system connects your family with certified BCBA therapists who specialize in your child's specific needs.
           </p>
         </div>
@@ -114,18 +114,18 @@ export function TherapistSection() {
           {/* Steps */}
           <div className="space-y-6">
             {steps.map((step, index) => (
-              <div key={index} className="therapist-step group flex gap-5 p-5 rounded-2xl hover:bg-gray-50 transition-all duration-300">
+              <div key={index} className="therapist-step group flex gap-5 p-5 rounded-2xl hover:bg-[#F3F8FF] transition-all duration-300">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-2xl bg-[#5B7DB8]/10 text-[#5B7DB8] flex items-center justify-center group-hover:bg-[#5B7DB8] group-hover:text-white transition-all duration-300">
+                  <div className="w-12 h-12 rounded-2xl bg-[#0068FF]/10 text-[#0068FF] flex items-center justify-center group-hover:bg-[#0068FF] group-hover:text-white transition-all duration-300">
                     {step.icon}
                   </div>
                 </div>
                 <div>
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs font-bold text-[#5B7DB8]/50 uppercase tracking-widest">Step {step.step}</span>
+                    <span className="text-xs font-bold text-[#0068FF]/50 uppercase tracking-widest">Step {step.step}</span>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2 tracking-tight">{step.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{step.description}</p>
+                  <h3 className="text-lg font-bold text-[#2C3D4B] mb-2 tracking-tight">{step.title}</h3>
+                  <p className="text-[#6A7780] text-sm leading-relaxed">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -133,7 +133,7 @@ export function TherapistSection() {
 
           {/* Visual Card */}
           <div className="therapist-visual relative">
-            <div className="relative bg-gradient-to-br from-[#5B7DB8]/5 to-[#7B5EA7]/5 rounded-3xl p-8 border border-gray-100">
+            <div className="relative bg-gradient-to-br from-[#0068FF]/5 to-[#2273FD]/5 rounded-3xl p-8 border border-[#D4E8FF]">
               {/* Therapist Cards Preview */}
               <div className="space-y-4">
                 {[
@@ -141,14 +141,14 @@ export function TherapistSection() {
                   { name: "Dr. Michael Chen", specialty: "Meltdown Prevention & ABA", rating: 4.8, reviews: 98, available: true },
                   { name: "Coach Maya Rivera", specialty: "Sensory Processing & Behavior", rating: 4.9, reviews: 156, available: false },
                 ].map((therapist, i) => (
-                  <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div key={i} className="bg-white rounded-xl p-5 border border-[#F0F2F7] shadow-sm hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#5B7DB8] to-[#4A6FA5] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0068FF] to-[#0051E8] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
                         {therapist.name.split(" ").map(n => n[0]).join("")}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1">
-                          <h4 className="font-bold text-gray-900 text-sm truncate">{therapist.name}</h4>
+                          <h4 className="font-bold text-[#2C3D4B] text-sm truncate">{therapist.name}</h4>
                           {therapist.available && (
                             <span className="flex-shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 text-[10px] font-semibold">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -156,15 +156,15 @@ export function TherapistSection() {
                             </span>
                           )}
                         </div>
-                        <p className="text-gray-500 text-xs mb-2">{therapist.specialty}</p>
+                        <p className="text-[#8695A3] text-xs mb-2">{therapist.specialty}</p>
                         <div className="flex items-center gap-3">
                           <div className="flex items-center gap-1">
-                            <svg className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                            <svg className="w-3.5 h-3.5 text-[#FFA30E]" fill="currentColor" viewBox="0 0 20 20">
                               <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                             </svg>
-                            <span className="text-xs font-semibold text-gray-700">{therapist.rating}</span>
+                            <span className="text-xs font-semibold text-[#4E6479]">{therapist.rating}</span>
                           </div>
-                          <span className="text-xs text-gray-400">{therapist.reviews} reviews</span>
+                          <span className="text-xs text-[#8695A3]">{therapist.reviews} reviews</span>
                         </div>
                       </div>
                     </div>
@@ -179,9 +179,9 @@ export function TherapistSection() {
                   { value: "95%", label: "Match Rate" },
                   { value: "<24h", label: "First Session" },
                 ].map((stat, i) => (
-                  <div key={i} className="text-center p-3 bg-white rounded-xl border border-gray-100">
-                    <div className="text-xl font-extrabold text-[#5B7DB8] tracking-tight">{stat.value}</div>
-                    <div className="text-[10px] font-medium text-gray-400 uppercase tracking-wider mt-0.5">{stat.label}</div>
+                  <div key={i} className="text-center p-3 bg-white rounded-xl border border-[#D4E8FF]">
+                    <div className="text-xl font-extrabold text-[#0068FF] tracking-tight">{stat.value}</div>
+                    <div className="text-[10px] font-medium text-[#8695A3] uppercase tracking-wider mt-0.5">{stat.label}</div>
                   </div>
                 ))}
               </div>

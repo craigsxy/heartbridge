@@ -29,8 +29,8 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#0f1117] text-white pt-20 pb-8">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#5B7DB8]/30 to-transparent" />
+    <footer className="relative bg-[#151F2A] text-white pt-20 pb-8">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0068FF]/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Newsletter Section */}
@@ -38,7 +38,7 @@ export function Footer() {
           <h3 className="text-2xl md:text-3xl font-bold tracking-tight mb-4">
             Stay updated on autism care innovations
           </h3>
-          <p className="text-gray-400 text-sm max-w-lg mx-auto mb-8">
+          <p className="text-[#8695A3] text-sm max-w-lg mx-auto mb-8">
             Get the latest research, tips, and HeartBridge updates delivered to your inbox. No spam, unsubscribe anytime.
           </p>
           {subscribed ? (
@@ -56,12 +56,12 @@ export function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#5B7DB8]/50 focus:border-[#5B7DB8]/50 transition-all"
+                className="flex-1 px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-[#6A7780] focus:outline-none focus:ring-2 focus:ring-[#0068FF]/50 focus:border-[#0068FF]/50 transition-all"
               />
               <button
                 type="submit"
                 disabled={subscribeMutation.isPending}
-                className="px-6 py-3 bg-[#5B7DB8] text-white text-sm font-semibold rounded-xl hover:bg-[#4A6FA5] transition-all duration-200 shadow-lg shadow-[#5B7DB8]/20 disabled:opacity-60 whitespace-nowrap"
+                className="px-6 py-3 bg-[#0068FF] text-white text-sm font-semibold rounded-xl hover:bg-[#0051E8] transition-all duration-200 shadow-lg shadow-[#0068FF]/25 disabled:opacity-60 whitespace-nowrap"
               >
                 {subscribeMutation.isPending ? "..." : "Subscribe"}
               </button>
@@ -74,14 +74,9 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#5B7DB8] to-[#4A6FA5] flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-                </svg>
-              </div>
-              <span className="text-base font-bold tracking-tight">HeartBridge</span>
+              <img src="/favicon.png" alt="HeartBridge" className="h-8 w-auto object-contain" />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <p className="text-[#8695A3] text-sm leading-relaxed mb-4">
               Predictive support for everyday autism care. AI-powered insights for families.
             </p>
           </div>
@@ -92,7 +87,7 @@ export function Footer() {
             <ul className="space-y-3">
               {["Predictive Analysis", "Therapist Matching", "Video Recording", "AI Chatbot", "Community"].map((item) => (
                 <li key={item}>
-                  <a href="#features" className="text-gray-400 text-sm hover:text-white transition-colors duration-200">{item}</a>
+                  <a href="#features" className="text-[#8695A3] text-sm hover:text-white transition-colors duration-200">{item}</a>
                 </li>
               ))}
             </ul>
@@ -107,7 +102,7 @@ export function Footer() {
                   <a
                     href="#"
                     onClick={(e) => handlePlaceholderClick(e, item)}
-                    className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
+                    className="text-[#8695A3] text-sm hover:text-white transition-colors duration-200"
                   >
                     {item}
                   </a>
@@ -125,7 +120,7 @@ export function Footer() {
                   <a
                     href="#"
                     onClick={(e) => handlePlaceholderClick(e, item)}
-                    className="text-gray-400 text-sm hover:text-white transition-colors duration-200"
+                    className="text-[#8695A3] text-sm hover:text-white transition-colors duration-200"
                   >
                     {item}
                   </a>
@@ -137,7 +132,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4">
-          <p className="text-gray-500 text-xs">
+          <p className="text-[#6A7780] text-xs">
             &copy; {new Date().getFullYear()} HeartBridge. All rights reserved. Research backed by Penn Medicine, USC Medical & Wharton.
           </p>
           <div className="flex items-center gap-4">
@@ -151,9 +146,9 @@ export function Footer() {
                 href="#"
                 onClick={(e) => handlePlaceholderClick(e, social.label)}
                 aria-label={social.label}
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors duration-200"
+                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#0068FF]/20 transition-colors duration-200"
               >
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-[#8695A3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={social.path} />
                 </svg>
               </a>

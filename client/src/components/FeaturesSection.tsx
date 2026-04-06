@@ -17,7 +17,7 @@ const features = [
     description: "AI-powered daily predictions for sleep quality, meltdown risk, and communication patterns. Get personalized insights with 90% accuracy to prepare for your child's day.",
     metric: "90%",
     metricLabel: "Prediction Accuracy",
-    color: "#5B7DB8",
+    color: "#0068FF",
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const features = [
     description: "Record and upload videos of your child's behavior for instant AI analysis. Get detailed behavior reports that help track activity transitions and emotional patterns.",
     metric: "Real-time",
     metricLabel: "Video Analysis",
-    color: "#4A9B8E",
+    color: "#2273FD",
   },
   {
     icon: (
@@ -41,7 +41,7 @@ const features = [
     description: "Connect with certified BCBA therapists instantly. Our matching algorithm considers your child's specific needs, therapist specialties, and availability for the best fit.",
     metric: "95%",
     metricLabel: "Match Success Rate",
-    color: "#7B5EA7",
+    color: "#70B8FF",
   },
   {
     icon: (
@@ -53,7 +53,7 @@ const features = [
     description: "Join a supportive community of parents navigating autism care. Share experiences, get advice, and access AI-generated calming morning routines and sensory guides.",
     metric: "24/7",
     metricLabel: "Always Available",
-    color: "#D4756B",
+    color: "#F24A33",
   },
   {
     icon: (
@@ -65,14 +65,13 @@ const features = [
     description: "Get instant answers from our AI chatbot trained on autism care best practices. Access curated resources, parent workshops, and clinical conversations all in one place.",
     metric: "Instant",
     metricLabel: "AI Responses",
-    color: "#C4883A",
+    color: "#FFA30E",
   },
 ];
 
 export function FeaturesSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Mouse tracking for hover gradient
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const cards = document.querySelectorAll('.feature-card');
@@ -114,16 +113,16 @@ export function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#5B7DB8]/10 border border-[#5B7DB8]/20 mb-6">
-            <div className="w-2 h-2 rounded-full bg-[#5B7DB8] animate-pulse" />
-            <span className="text-sm font-semibold text-[#5B7DB8] tracking-wide">Core Features</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#0068FF]/10 border border-[#0068FF]/20 mb-6">
+            <div className="w-2 h-2 rounded-full bg-[#0068FF] animate-pulse" />
+            <span className="text-sm font-semibold text-[#0068FF] tracking-wide">Core Features</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-5">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-[#2C3D4B] mb-5">
             Everything your family needs,
             <br />
-            <span className="text-[#5B7DB8]">in one place.</span>
+            <span className="text-[#0068FF]">in one place.</span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#6A7780] text-lg max-w-2xl mx-auto leading-relaxed">
             HeartBridge combines AI-powered predictions, real-time analysis, and expert therapist connections to provide comprehensive autism care support.
           </p>
         </div>
@@ -133,7 +132,7 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className={`feature-card group relative bg-white rounded-2xl p-7 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
+              className={`feature-card group relative bg-white rounded-2xl p-7 border border-[#F0F2F7] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
                 index >= 3 ? "lg:col-span-1 md:col-span-1" : ""
               }`}
             >
@@ -146,15 +145,15 @@ export function FeaturesSection() {
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-bold text-gray-900 mb-3 tracking-tight">{feature.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-5">{feature.description}</p>
+              <h3 className="text-lg font-bold text-[#2C3D4B] mb-3 tracking-tight">{feature.title}</h3>
+              <p className="text-[#6A7780] text-sm leading-relaxed mb-5">{feature.description}</p>
 
               {/* Metric */}
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+              <div className="flex items-center gap-3 pt-4 border-t border-[#F0F2F7]">
                 <span className="text-2xl font-extrabold tracking-tight" style={{ color: feature.color }}>
                   {feature.metric}
                 </span>
-                <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                <span className="text-xs font-medium text-[#8695A3] uppercase tracking-wider">
                   {feature.metricLabel}
                 </span>
               </div>
