@@ -14,15 +14,21 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    setMobileMenuOpen(false);
+  };
+
   return (
     <header
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ${
         scrolled
-          ? "w-[95%] max-w-5xl bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 rounded-2xl border border-gray-200/50"
-          : "w-[95%] max-w-5xl bg-white/70 backdrop-blur-md rounded-2xl border border-gray-200/30"
+          ? "w-[95%] max-w-5xl bg-white/90 backdrop-blur-xl shadow-lg shadow-black/5 rounded-2xl border border-[#CDD4DC]/50"
+          : "w-[95%] max-w-5xl bg-white/70 backdrop-blur-md rounded-2xl border border-[#CDD4DC]/30"
       }`}
     >
-      <div className="flex items-center justify-between pl-0 pr-5 h-18 overflow-visible">
+      <div className="flex items-center justify-between pl-0 pr-5 h-14 overflow-visible">
         {/* Logo */}
         <a href="#" className="flex items-center group overflow-visible">
           <img
@@ -35,17 +41,17 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
           {[
+            { label: "Credibility", href: "#credibility" },
             { label: "Features", href: "#features" },
-            { label: "Therapists", href: "#therapists" },
-            { label: "Testimonials", href: "#testimonials" },
+            { label: "Parents", href: "#parents" },
           ].map((item) => (
-            <a
+            <button
               key={item.href}
-              href={item.href}
-              className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-100/80 transition-all duration-200"
+              onClick={() => scrollToSection(item.href)}
+              className="px-4 py-2 text-sm font-medium text-[#6A7780] hover:text-[#2C3D4B] rounded-lg hover:bg-[#F3F8FF] transition-all duration-200"
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -61,10 +67,10 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+          className="md:hidden p-2 rounded-lg hover:bg-[#F3F8FF] transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 text-[#4E6479]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {mobileMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -76,20 +82,19 @@ export function Header({ onJoinWaitlist }: HeaderProps) {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-gray-100 px-5 py-4 space-y-2">
+        <div className="md:hidden border-t border-[#F0F2F7] px-5 py-4 space-y-2">
           {[
+            { label: "Credibility", href: "#credibility" },
             { label: "Features", href: "#features" },
-            { label: "Therapists", href: "#therapists" },
-            { label: "Testimonials", href: "#testimonials" },
+            { label: "Parents", href: "#parents" },
           ].map((item) => (
-            <a
+            <button
               key={item.href}
-              href={item.href}
-              className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-50 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => scrollToSection(item.href)}
+              className="block w-full text-left px-4 py-2.5 text-sm font-medium text-[#6A7780] hover:text-[#2C3D4B] rounded-lg hover:bg-[#F3F8FF] transition-colors"
             >
               {item.label}
-            </a>
+            </button>
           ))}
           <button
             onClick={() => { onJoinWaitlist?.(); setMobileMenuOpen(false); }}

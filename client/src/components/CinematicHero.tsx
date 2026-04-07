@@ -63,7 +63,6 @@ export function CinematicHero({
       gsap.set(".text-days", { autoAlpha: 1, clipPath: "inset(0 100% 0 0)" });
       gsap.set(".main-card", { y: "110vh" });
       gsap.set([".card-left-text", ".card-right-text", ".mockup-scroll-wrapper", ".floating-badge", ".phone-widget"], { autoAlpha: 0 });
-      gsap.set(".cta-wrapper", { autoAlpha: 0, scale: 0.8, filter: "blur(30px)" });
 
       // Intro animation
       const introTl = gsap.timeline({ delay: 0.3 });
@@ -77,7 +76,7 @@ export function CinematicHero({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=2800",
+          end: "+=800",
           pin: true,
           scrub: 0.3,
           anticipatePin: 1,
@@ -85,41 +84,33 @@ export function CinematicHero({
       });
 
       scrollTl
-        // Phase 1 (0→1): Hero fades out + card rises simultaneously
-        .to(".hero-text-wrapper", { scale: 1.06, filter: "blur(16px)", autoAlpha: 0, ease: "none", duration: 1 }, 0)
-        .to(".bg-grid-theme", { opacity: 0.05, ease: "none", duration: 1 }, 0)
-        .to(".main-card", { y: 0, ease: "none", duration: 1 }, 0)
-        // Phase 2 (1→1.6): Card snaps to fullscreen
-        .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "none", duration: 0.6 })
-        // Phase 3 (1.6→2.6): Phone + badges + text all reveal together
+        // Phase 1 (0→3): Slogan fades + card rises — takes up most of the scroll distance
+        .to(".hero-text-wrapper", { scale: 1.06, filter: "blur(16px)", autoAlpha: 0, ease: "none", duration: 3 }, 0)
+        .to(".bg-grid-theme", { opacity: 0.05, ease: "none", duration: 3 }, 0)
+        .to(".main-card", { y: 0, ease: "none", duration: 3 }, 0)
+        // Phase 2 (3→3.1): Card snaps to fullscreen
+        .to(".main-card", { width: "100%", height: "100%", borderRadius: "0px", ease: "none", duration: 0.1 })
+        // Phase 3 (3.1→3.3): Phone briefly flashes in
         .fromTo(".mockup-scroll-wrapper",
-          { y: 120, autoAlpha: 0, scale: 0.8 },
-          { y: 0, autoAlpha: 1, scale: 1, ease: "none", duration: 0.8 }, "-=0.1"
+          { y: 60, autoAlpha: 0, scale: 0.9 },
+          { y: 0, autoAlpha: 1, scale: 1, ease: "none", duration: 0.1 }
         )
-        .fromTo(".phone-widget", { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.04, ease: "none", duration: 0.5 }, "-=0.6")
-        .to(".progress-ring", { strokeDashoffset: 60, ease: "none", duration: 0.6 }, "-=0.6")
-        .to(".counter-val", { innerHTML: 88, snap: { innerHTML: 1 }, ease: "none", duration: 0.6 }, "<")
-        .fromTo(".floating-badge", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.06, ease: "none", duration: 0.5 }, "-=0.4")
-        .fromTo(".card-left-text", { x: -30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.5 }, "-=0.4")
-        .fromTo(".card-right-text", { x: 30, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.5 }, "<")
-        // Phase 4 (2.6→3.4): Phone exits + CTA fades in — NO hold pause
-        .to([".mockup-scroll-wrapper", ".floating-badge", ".card-left-text", ".card-right-text"], {
-          autoAlpha: 0, y: -20, ease: "none", duration: 0.5,
+        .fromTo(".phone-widget", { autoAlpha: 0 }, { autoAlpha: 1, ease: "none", duration: 0.05 }, "<")
+        .fromTo(".card-left-text", { x: -20, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.05 }, "<")
+        .fromTo(".card-right-text", { x: 20, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "none", duration: 0.05 }, "<")
+        // Phase 4 (3.3→3.4): Everything exits
+        .to([".mockup-scroll-wrapper", ".card-left-text", ".card-right-text"], {
+          autoAlpha: 0, y: -15, ease: "none", duration: 0.1,
         })
-        .set(".hero-text-wrapper", { autoAlpha: 0 })
-        .fromTo(".cta-wrapper",
-          { autoAlpha: 0, scale: 0.97, filter: "blur(8px)" },
-          { autoAlpha: 1, scale: 1, filter: "blur(0px)", ease: "none", duration: 0.6 }, "-=0.1"
-        )
-        // Phase 5 (3.4→4.4): Card shrinks back + exits
+        // Phase 5 (3.4→3.6): Card shrinks + exits
         .to(".main-card", {
           width: isMobile ? "92vw" : "85vw",
           height: isMobile ? "92vh" : "85vh",
           borderRadius: isMobile ? "32px" : "40px",
           ease: "none",
-          duration: 0.7
-        }, "+=0.1")
-        .to(".main-card", { y: -(window.innerHeight + 150), ease: "none", duration: 0.8 });
+          duration: 0.1
+        })
+        .to(".main-card", { y: -(window.innerHeight + 150), ease: "none", duration: 0.1 });
 
     }, containerRef);
 
@@ -144,36 +135,6 @@ export function CinematicHero({
         <h1 className="text-days gsap-reveal text-silver-matte text-4xl md:text-6xl lg:text-[5.5rem] font-extrabold tracking-tighter leading-tight">
           protect the child.
         </h1>
-      </div>
-
-      {/* CTA Wrapper */}
-      <div className="cta-wrapper absolute z-10 flex flex-col items-center justify-center text-center w-screen px-4 gsap-reveal pointer-events-auto will-change-transform">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-silver-matte">
-          Join the waitlist.
-        </h2>
-        <p className="text-muted-foreground text-base md:text-lg mb-10 max-w-xl mx-auto font-light leading-relaxed">
-          Be among the first families to experience AI-powered autism care. Predictive insights, therapist matching, and 24/7 support.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-5">
-          <button
-            onClick={onJoinWaitlist}
-            className="btn-modern-dark flex items-center justify-center gap-3 px-8 py-4 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-            </svg>
-            <span className="text-lg font-semibold">Get Early Access</span>
-          </button>
-          <a
-            href="#features"
-            className="btn-modern-light flex items-center justify-center gap-3 px-8 py-4 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            <span className="text-lg font-semibold">Learn More</span>
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
       </div>
 
       {/* The Deep Blue Card */}

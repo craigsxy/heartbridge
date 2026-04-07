@@ -74,7 +74,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <img src="/favicon.png" alt="HeartBridge" className="h-8 w-auto object-contain" />
+              <img src="/favicon.png" alt="HeartBridge" className="h-36 w-auto object-contain" />
             </div>
             <p className="text-[#8695A3] text-sm leading-relaxed mb-4">
               Predictive support for everyday autism care. AI-powered insights for families.
